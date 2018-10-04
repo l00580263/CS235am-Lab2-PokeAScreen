@@ -22,12 +22,30 @@ namespace PokeAScreen
             // create ui
             var layout = new LinearLayout(this);
             layout.Orientation = Orientation.Vertical;
-
+            var messageLabel = new TextView(this);
+            layout.AddView(messageLabel);
+            
 
             // enable 'up'
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
-            
+
+            // change message
+            var passedMessage = Intent.GetStringExtra("Screen1Message");
+            var passedBool = Intent.GetBooleanExtra("Screen1Bool", false);
+            if (passedMessage != null)
+            {
+                // greet
+                messageLabel.Text = passedMessage;
+            }
+            else if (passedBool)
+            {
+                // poke
+                messageLabel.Text = "Done been Poked.";
+            }
+
+            // set content
+            SetContentView(layout);
         }
 
 
