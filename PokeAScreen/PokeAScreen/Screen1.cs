@@ -10,10 +10,15 @@ namespace PokeAScreen
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class Screen1 : AppCompatActivity
     {
+        
+        // static extra keys
+        public const string POKE_MSG_KEY = "Screen1Bool";
+        public const string GREET_MSG_KEY = "Screen1Message";
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            
 
             // create ui
             var layout = new LinearLayout(this);
@@ -38,7 +43,7 @@ namespace PokeAScreen
                 // create intent
                 var poke = new Intent(this, typeof(Screen2));
                 // add key-value pair
-                poke.PutExtra("Screen1Bool", true);
+                poke.PutExtra(POKE_MSG_KEY, true);
                 // start screen 2
                 StartActivity(poke);
             };
@@ -48,7 +53,7 @@ namespace PokeAScreen
                 // create intent
                 var greet = new Intent(this, typeof(Screen2));
                 // add key-value pair
-                greet.PutExtra("Screen1Message", "Screensons Greetings");
+                greet.PutExtra(GREET_MSG_KEY, "Screensons Greetings");
                 // start screen 2
                 StartActivity(greet);
             };

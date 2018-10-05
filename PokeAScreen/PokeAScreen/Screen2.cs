@@ -13,7 +13,8 @@ using Android.Widget;
 
 namespace PokeAScreen
 {
-    [Activity(Label = "Screen2")]
+    // set parent
+    [Activity(Label = "Screen2", ParentActivity = typeof(Screen1))]
     public class Screen2 : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,8 +32,8 @@ namespace PokeAScreen
 
 
             // change message
-            var passedMessage = Intent.GetStringExtra("Screen1Message");
-            var passedBool = Intent.GetBooleanExtra("Screen1Bool", false);
+            var passedMessage = Intent.GetStringExtra(Screen1.GREET_MSG_KEY);
+            var passedBool = Intent.GetBooleanExtra(Screen1.POKE_MSG_KEY, false);
             if (passedMessage != null)
             {
                 // greet
@@ -46,18 +47,6 @@ namespace PokeAScreen
 
             // set content
             SetContentView(layout);
-        }
-
-
-        // up functionality
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId != Android.Resource.Id.Home)
-            {
-                return base.OnOptionsItemSelected(item);
-            }
-            Finish();
-            return true;
         }
     }
 }

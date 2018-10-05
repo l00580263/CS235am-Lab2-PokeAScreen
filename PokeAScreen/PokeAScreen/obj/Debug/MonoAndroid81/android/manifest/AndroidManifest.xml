@@ -10,7 +10,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="Screen2" android:name="md5a63bf8f1a3e08a44e3cdbcb4b5027bc2.Screen2" />
+    <activity android:label="Screen2" android:parentActivityName="md5a63bf8f1a3e08a44e3cdbcb4b5027bc2.Screen1" android:name="md5a63bf8f1a3e08a44e3cdbcb4b5027bc2.Screen2" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="PokeAScreen.PokeAScreen.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
